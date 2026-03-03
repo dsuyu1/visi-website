@@ -13,6 +13,11 @@ body {
   overflow-x: hidden;
 }
 
+.dark body {
+  background-color: #030712;
+  color: #f3f4f6;
+}
+
 .grid-bg {
   background-image: 
     linear-gradient(to right, transparent 23px, #f3f4f6 23px, #f3f4f6 25px, transparent 25px),
