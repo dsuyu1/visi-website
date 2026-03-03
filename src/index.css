@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, transparent 23px, #f3f4f6 23px, #f3f4f6 25px, transparent 25px),
+    linear-gradient(to bottom, transparent 23px, #f3f4f6 23px, #f3f4f6 25px, transparent 25px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  animation: grid-move 3s linear infinite;
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+.nav-link-animated {
+  position: relative;
+  color: #4b5563;
+  transition: color 0.3s ease;
+}
+.nav-link-animated:hover {
+  color: #D95D39;
+}
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #D95D39;
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.nav-link-animated:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
