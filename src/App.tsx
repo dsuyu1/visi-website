@@ -14,7 +14,7 @@ import CyberClinic from './pages/CyberClinic';
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans flex flex-col relative">
+      <div className="min-h-screen bg-white text-gray-900 font-sans flex flex-col relative">
         <Navbar />
         <main className="flex-grow">
           <Routes>
