@@ -10,6 +10,7 @@ import Partners from './pages/Partners';
 import VSOC from './pages/VSOC';
 import Workshops from './pages/Workshops';
 import CyberClinic from './pages/CyberClinic';
+import Classroom from './pages/Classroom';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/vsoc" element={<VSOC />} />
             <Route path="/workshops" element={<Workshops />} />
             <Route path="/cyber-clinic" element={<CyberClinic />} />
+            <Route path="/classroom" element={<Classroom />} />
           </Routes>
         </main>
         <Footer />
