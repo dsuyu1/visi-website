@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Shield, Menu, X, ChevronDown, LogIn, MessageSquare, Search } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown, LogIn, MessageSquare, Search } from 'lucide-react';
+import visiLogo from '../assets/VISI_logos/visi-logo-horizontal.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,11 +60,12 @@ export default function Navbar() {
         <div className={`px-4 sm:px-6 lg:px-8 ${searchOpen ? 'opacity-0 invisible' : 'opacity-100 visible'} transition-opacity duration-200`}>
           <div className="flex justify-between items-center h-12">
             <div className="flex items-center">
-              <Link to="/" className="flex items-center gap-2 group">
-                <Shield className="h-6 w-6 text-[#D95D39] group-hover:text-[#E66A46] transition-colors" />
-                <span className="font-bold text-lg tracking-tight text-gray-900 font-display uppercase">
-                  VISI
-                </span>
+              <Link to="/" className="flex items-center group">
+                <img 
+                  src={visiLogo} 
+                  alt="VISI Logo" 
+                  className="h-8 w-auto scale-140 origin-left group-hover:opacity-80 transition-all duration-200"
+                />
               </Link>
             </div>
 

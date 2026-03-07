@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Shield, Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
+import visiLogo from '../assets/VISI_logos/visi-logo-horizontal.png';
 
 export default function Footer() {
   return (
@@ -7,12 +8,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <Shield className="h-8 w-8 text-[#D95D39]" />
-              <span className="font-bold text-xl tracking-tight text-gray-900">
-                Vaquero <span className="text-[#D95D39]">ISI</span>
-              </span>
+            
+            {/* Replaced Shield and Text with Logo Image */}
+            <Link to="/" className="flex items-center group mb-6">
+              <img 
+                src={visiLogo} 
+                alt="VISI Logo" 
+                className="h-8 w-auto scale-125 origin-left group-hover:opacity-80 transition-all duration-200" 
+              />
             </Link>
+
             <p className="text-gray-600 text-sm leading-relaxed">
               Vaquero Information Security Initiative. Empowering students with hands-on cybersecurity experience and threat intelligence research.
             </p>
