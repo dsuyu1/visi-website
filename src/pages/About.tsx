@@ -81,27 +81,6 @@ export default function About() {
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                 Through our student-run Virtual SOC (Vaquero Labs), we provide members with enterprise-grade tools and realistic environments to practice offensive and defensive operations, conduct threat intelligence research, and prepare for careers in the rapidly evolving cyber landscape.
               </p>
-              
-              <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="flex items-start gap-3">
-                  <div className="bg-[#D95D39]/10 p-2 rounded-lg">
-                    <Target className="h-6 w-6 text-[#D95D39]" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Hands-on Learning</h4>
-                    <p className="text-sm text-gray-500 mt-1">Real-world scenarios and labs.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="bg-[#D95D39]/10 p-2 rounded-lg">
-                    <Users className="h-6 w-6 text-[#D95D39]" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Community</h4>
-                    <p className="text-sm text-gray-500 mt-1">Collaborative research and networking.</p>
-                  </div>
-                </div>
-              </div>
             </motion.div>
 
             {/* Instagram Embed replacing the image */}

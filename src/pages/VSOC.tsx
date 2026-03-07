@@ -1,5 +1,8 @@
 import { motion } from 'motion/react';
-import { Activity, ShieldAlert, Crosshair, Server } from 'lucide-react';
+import { Activity, ShieldAlert, Crosshair, Server, ChevronRight } from 'lucide-react';
+
+// Import the new VSOC image
+import vsocImage from '../assets/vsoc/kevin-horvat-Pyjp2zmxuLk-unsplash.jpg';
 
 export default function VSOC() {
   const features = [
@@ -9,7 +12,7 @@ export default function VSOC() {
       icon: <Activity className="h-6 w-6 text-[#D95D39]" />
     },
     {
-      title: "Real-Life Events",
+      title: "Realistic Simulations",
       description: "We inject actual threat scenarios and vulnerabilities into the network, providing hands-on experience with the latest attack vectors.",
       icon: <ShieldAlert className="h-6 w-6 text-[#D95D39]" />
     },
@@ -41,9 +44,21 @@ export default function VSOC() {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6 font-display">
               Virtual <span className="text-[#D95D39]">SOC</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
               A state-of-the-art simulation environment designed to replicate the operations, challenges, and tools of a real-world Security Operations Center.
             </p>
+            
+            {/* Link to Lab Environment */}
+            <div className="flex justify-center">
+              <a
+                href="https://lab.vaqueroisi.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex justify-center items-center gap-2 bg-[#D95D39] hover:bg-[#E66A46] text-white px-8 py-4 rounded-md font-bold text-lg transition-all shadow-md hover:shadow-lg"
+              >
+                Access Lab Dashboard <ChevronRight className="h-5 w-5" />
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -60,7 +75,7 @@ export default function VSOC() {
             >
               <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">The Platform</h2>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight font-display">
-                Training the next generation of cyber warriors
+                Training the next generation of cyber defenders
               </h3>
               <p className="text-gray-600 text-lg mb-6 leading-relaxed">
                 The Virtual SOC (VSOC) is the core of VISI's hands-on training methodology. It is a comprehensive, simulated network environment that mirrors the complexity and scale of modern enterprise infrastructures.
@@ -78,8 +93,9 @@ export default function VSOC() {
               className="relative"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-[#D95D39]/20 to-transparent rounded-2xl transform translate-x-4 translate-y-4"></div>
+              {/* Image updated here */}
               <img 
-                src="https://picsum.photos/seed/vsoc/800/600?blur=1" 
+                src={vsocImage} 
                 alt="Virtual SOC Environment" 
                 className="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/3]"
                 referrerPolicy="no-referrer"

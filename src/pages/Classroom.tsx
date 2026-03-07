@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, ChevronRight, FileText, Terminal } from 'lucide-react';
 
-// Curriculum Data (Icons and accents removed for a cleaner design)
+// Curriculum Data
 const courseData = [
   {
     id: 'module-1',
@@ -454,47 +454,47 @@ export default function Classroom() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Custom text renderer to handle markdown-like syntax
+  // Smart inline text renderer for markdown-like syntax anywhere in a string
+  const renderInlineText = (text: string) => {
+    // Split by **bold** or `code`
+    const parts = text.split(/(\*\*.*?\*\*|`.*?`)/g);
+    
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index} className="font-bold text-gray-900">{part.slice(2, -2)}</strong>;
+      }
+      if (part.startsWith('`') && part.endsWith('`')) {
+        return (
+          <code key={index} className="bg-gray-100 text-[#D95D39] px-1.5 py-0.5 rounded text-sm font-mono border border-gray-200">
+            {part.slice(1, -1)}
+          </code>
+        );
+      }
+      return <React.Fragment key={index}>{part}</React.Fragment>;
+    });
+  };
+
+  // Custom text renderer to handle structure (paragraphs, lists, headings)
   const renderContent = (content: string) => {
     const lines = content.split('\n');
     return lines.map((line, i) => {
-      // Bold headings
-      if (line.startsWith('**') && line.endsWith('**')) {
-        return <h4 key={i} className="text-lg font-bold text-gray-900 mt-6 mb-2">{line.replace(/\*\*/g, '')}</h4>;
+      // Dedicated Heading (Entire line is wrapped in **)
+      if (line.trim().startsWith('**') && line.trim().endsWith('**') && line.trim().length > 4) {
+        return <h4 key={i} className="text-lg font-bold text-gray-900 mt-6 mb-2">{line.trim().slice(2, -2)}</h4>;
       }
-      // Bullet points with bold titles
-      if (line.startsWith('- **')) {
-        const match = line.match(/^- \*\*(.+?)\*\*(.*)$/);
-        if (match) {
-          return (
-            <li key={i} className="ml-6 mb-2 text-gray-700 list-disc">
-              <span className="font-bold text-gray-900">{match[1]}</span>
-              <span>{match[2]}</span>
-            </li>
-          );
-        }
-      }
-      // Standard bullet points
+      // Bullet points
       if (line.startsWith('- ')) {
-        return <li key={i} className="ml-6 mb-2 text-gray-700 list-disc">{line.slice(2)}</li>;
+        return <li key={i} className="ml-6 mb-2 text-gray-700 list-disc">{renderInlineText(line.slice(2))}</li>;
       }
       // Numbered lists
       if (/^\d+\.\s/.test(line)) {
-        const match = line.match(/^(\d+)\.\s\*\*(.+?)\*\*(.*)$/);
-        if (match) {
-          return (
-            <li key={i} className="ml-6 mb-2 text-gray-700 list-decimal">
-              <span className="font-bold text-gray-900">{match[2]}</span>
-              <span>{match[3]}</span>
-            </li>
-          );
-        }
-        return <li key={i} className="ml-6 mb-2 text-gray-700 list-decimal">{line.replace(/^\d+\.\s/, '')}</li>;
+        return <li key={i} className="ml-6 mb-2 text-gray-700 list-decimal">{renderInlineText(line.replace(/^\d+\.\s/, ''))}</li>;
       }
       // Empty lines
       if (line.trim() === '') return <div key={i} className="h-4" />;
+      
       // Standard paragraphs
-      return <p key={i} className="text-gray-700 leading-relaxed mb-4">{line}</p>;
+      return <p key={i} className="text-gray-700 leading-relaxed mb-4">{renderInlineText(line)}</p>;
     });
   };
 
@@ -561,7 +561,7 @@ export default function Classroom() {
               {renderContent(activeLesson.content)}
             </div>
 
-            {/* Hands-On Lab Section (Styled like original notes block) */}
+            {/* Hands-On Lab Section */}
             {activeLesson.lab && (
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 mt-10">
                 <div className="flex items-center gap-2 mb-4 pb-4 border-b border-gray-200">

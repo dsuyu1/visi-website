@@ -246,15 +246,18 @@ export default function CyberClinic() {
             <div>
               <h4 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <BookOpen className="h-6 w-6 text-[#D95D39]" />
-                Tentative Schedule
+                8-Week Curriculum
               </h4>
               <div className="space-y-4">
                 {[
-                  { week: "Week 1", title: "Introduction to Public-Interest Cybersecurity" },
-                  { week: "Week 2", title: "Threats to Civil Society's Cybersecurity" },
-                  { week: "Week 3", title: "Meet the First Client" },
-                  { week: "Week 4", title: "Risk Assessments" },
-                  { week: "Week 5", title: "Information Gathering and Analysis" }
+                  { week: "Week 1", title: "Intro to Public-Interest Cybersecurity" },
+                  { week: "Week 2", title: "Threats to Civil Society" },
+                  { week: "Week 3", title: "Meet the Client & OSINT" },
+                  { week: "Week 4", title: "Risk Assessments & Scoring" },
+                  { week: "Week 5", title: "Info Gathering & Log Analysis" },
+                  { week: "Week 6", title: "Phishing & Human Controls" },
+                  { week: "Week 7", title: "Ransomware Response (IR)" },
+                  { week: "Week 8", title: "Client Deliverable & Reporting" }
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-4 bg-gray-800 p-4 rounded-lg border border-gray-700">
                     <span className="bg-[#D95D39] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">
@@ -396,26 +399,32 @@ export default function CyberClinic() {
                   Project-Based Assignments
                 </h3>
                 <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                  We take a project and team-based approach to assignments. These assignments give students practical, hands-on practice prior to real client engagements and mirror real-world issues.
+                  We take a project and team-based approach to assignments. These deliverables give students practical, hands-on practice prior to real client engagements and mirror real-world SOC workflows.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <div className="bg-white p-1 rounded-full shadow-sm border border-gray-100 mt-1">
                       <CheckCircle2 className="h-4 w-4 text-[#D95D39]" />
                     </div>
-                    <span className="text-gray-700 font-medium">Team Case Studies</span>
+                    <span className="text-gray-700 font-medium">Threat Actor Mapping & Kill Chain Analysis</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-white p-1 rounded-full shadow-sm border border-gray-100 mt-1">
                       <CheckCircle2 className="h-4 w-4 text-[#D95D39]" />
                     </div>
-                    <span className="text-gray-700 font-medium">Simulated risk and vulnerability assessments</span>
+                    <span className="text-gray-700 font-medium">Simulated Risk & Vulnerability Assessments</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-white p-1 rounded-full shadow-sm border border-gray-100 mt-1">
                       <CheckCircle2 className="h-4 w-4 text-[#D95D39]" />
                     </div>
-                    <span className="text-gray-700 font-medium">Writing policies (GRC)</span>
+                    <span className="text-gray-700 font-medium">SIEM Log Triage & Incident Response Tabletop</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="bg-white p-1 rounded-full shadow-sm border border-gray-100 mt-1">
+                      <CheckCircle2 className="h-4 w-4 text-[#D95D39]" />
+                    </div>
+                    <span className="text-gray-700 font-medium">Client-Facing Executive Reporting</span>
                   </li>
                 </ul>
 
@@ -431,13 +440,7 @@ export default function CyberClinic() {
                     <div className="bg-white p-1 rounded-full shadow-sm border border-gray-100 mt-1">
                       <CheckCircle2 className="h-4 w-4 text-[#D95D39]" />
                     </div>
-                    <span className="text-gray-700 font-medium"><strong>Software:</strong> Vulnerability scanners, EDR, and Risk Management tools</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="bg-white p-1 rounded-full shadow-sm border border-gray-100 mt-1">
-                      <CheckCircle2 className="h-4 w-4 text-[#D95D39]" />
-                    </div>
-                    <span className="text-gray-700 font-medium"><strong>Collaboration:</strong> Jira, Confluence, and Secure Storage</span>
+                    <span className="text-gray-700 font-medium"><strong>Software:</strong> Vulnerability scanners, EDR, SIEM, and Risk Management tools</span>
                   </li>
                 </ul>
               </motion.div>
