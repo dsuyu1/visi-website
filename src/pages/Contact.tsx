@@ -1,6 +1,44 @@
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 
 export default function Contact() {
+  // State to hold form data so we can generate the email
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    jobTitle: '',
+    company: '',
+    phone: '',
+    email: '',
+    country: '',
+    reason: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Format the email subject and body
+    const subject = `VISI Contact Form: ${formData.reason} inquiry from ${formData.firstName} ${formData.lastName}`;
+    const body = `Name: ${formData.firstName} ${formData.lastName}
+Job Title: ${formData.jobTitle}
+Organization: ${formData.company}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Country: ${formData.country}
+
+Message:
+${formData.message}
+`;
+
+    // Open the user's default mail client with the pre-filled information
+    window.location.href = `mailto:damian.villarreal01@utrgv.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <div className="bg-white min-h-screen pt-24 pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,21 +53,22 @@ export default function Contact() {
               Get in Touch with <span className="text-[#D95D39]">VISI</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Have a question about our solutions, need assistance, or have a general inquiry? Fill out the form and the right team will get back to you.
+              Have a question about our solutions, need assistance, or have a general inquiry? Fill out the form and we will get back to you.
             </p>
             
             <div className="space-y-6">
               <div className="border-l-2 border-[#D95D39] pl-4">
-                <h3 className="text-gray-900 font-bold text-lg">General Inquiries</h3>
-                <p className="text-gray-600">contact@vaqueroisi.org</p>
-              </div>
-              <div className="border-l-2 border-[#D95D39] pl-4">
-                <h3 className="text-gray-900 font-bold text-lg">Lab Support</h3>
-                <p className="text-gray-600">support@vaqueroisi.org</p>
+                <h3 className="text-gray-900 font-bold text-lg">General Inquiries & Lab Support</h3>
+                <a href="mailto:damian.villarreal01@utrgv.edu" className="text-[#D95D39] hover:underline font-medium">
+                  damian.villarreal01@utrgv.edu
+                </a>
               </div>
               
               <div className="pt-6">
-                <h3 className="text-gray-900 font-bold text-lg mb-4">Join our Community</h3>
+                <h3 className="text-gray-900 font-bold text-lg mb-2">Join our Community</h3>
+                <p className="text-gray-600 mb-4">
+                  We highly recommend sending inquiries, questions, and comments through our Discord server for the fastest response!
+                </p>
                 <a 
                   href="https://discord.gg/GzJXDbJrCt" 
                   target="_blank" 
@@ -52,43 +91,43 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm"
           >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                  <input type="text" id="firstName" className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" required />
+                  <input type="text" id="firstName" value={formData.firstName} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" required />
                 </div>
                 <div>
                   <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                  <input type="text" id="lastName" className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" required />
+                  <input type="text" id="lastName" value={formData.lastName} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" required />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700 mb-2">Job Title</label>
-                  <input type="text" id="jobTitle" className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" />
+                  <input type="text" id="jobTitle" value={formData.jobTitle} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" />
                 </div>
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">Company / Organization</label>
-                  <input type="text" id="company" className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" />
+                  <input type="text" id="company" value={formData.company} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Work Phone</label>
-                  <input type="tel" id="phone" className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" />
+                  <input type="tel" id="phone" value={formData.phone} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Work Email *</label>
-                  <input type="email" id="email" className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" required />
+                  <input type="email" id="email" value={formData.email} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors" required />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">Country *</label>
-                <select id="country" className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors appearance-none" required>
+                <select id="country" value={formData.country} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors appearance-none" required>
                   <option value="">Select a country...</option>
                   <option value="US">United States</option>
                   <option value="CA">Canada</option>
@@ -100,13 +139,18 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="reason" className="block text-sm font-medium text-gray-700 mb-2">Reason for Contact *</label>
-                <select id="reason" className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors appearance-none" required>
+                <select id="reason" value={formData.reason} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors appearance-none" required>
                   <option value="">Select a reason...</option>
-                  <option value="sales">Sales Inquiry</option>
-                  <option value="support">Lab Support</option>
-                  <option value="partnership">Partnership</option>
-                  <option value="other">Other</option>
+                  <option value="Community Support / Services">Community Support / Services</option>
+                  <option value="Lab Support">Lab Support</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Other">Other</option>
                 </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                <textarea id="message" value={formData.message} onChange={handleChange} rows={4} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors resize-none" required></textarea>
               </div>
 
               <div className="flex items-start">
@@ -119,7 +163,7 @@ export default function Contact() {
               </div>
 
               <button type="submit" className="w-full bg-[#D95D39] hover:bg-[#E66A46] text-white font-bold py-4 px-8 rounded-md transition-colors mt-4">
-                Submit
+                Draft Email to VISI
               </button>
             </form>
           </motion.div>
