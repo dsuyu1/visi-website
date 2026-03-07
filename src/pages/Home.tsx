@@ -113,55 +113,12 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Analyzing the Latest Ransomware Tactics in 2026",
-                category: "Threat Intel",
-                date: "March 2, 2026",
-                image: "https://picsum.photos/seed/cyber1/800/600?blur=2"
-              },
-              {
-                title: "Building a Zero Trust Architecture in the Lab",
-                category: "Infrastructure",
-                date: "February 28, 2026",
-                image: "https://picsum.photos/seed/network/800/600?blur=2"
-              },
-              {
-                title: "Evasion Techniques: Bypassing Modern EDRs",
-                category: "Red Team",
-                date: "February 15, 2026",
-                image: "https://picsum.photos/seed/hacker/800/600?blur=2"
-              }
-            ].map((post, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative overflow-hidden rounded-xl mb-6 aspect-video">
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors z-10"></div>
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    referrerPolicy="no-referrer"
-                    className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4 z-20">
-                    <span className="bg-[#D95D39] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                      {post.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="text-gray-500 text-sm mb-2">{post.date}</div>
-                <h4 className="text-xl font-bold text-gray-900 group-hover:text-[#D95D39] transition-colors line-clamp-2">
-                  {post.title}
-                </h4>
-              </motion.div>
-            ))}
+          <div className="text-center py-16 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+            <Activity className="h-10 w-10 text-gray-400 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Research Coming Soon</h3>
+            <p className="text-gray-500 max-w-md mx-auto">
+              Our team is currently working on some exciting new research and tutorials. Check back soon for our first publications!
+            </p>
           </div>
           
           <div className="mt-12 text-center">

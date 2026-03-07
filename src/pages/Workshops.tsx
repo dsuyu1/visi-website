@@ -1,31 +1,26 @@
 import { motion } from 'motion/react';
-import { Calendar, Video, Clock, MapPin } from 'lucide-react';
+import { Calendar, Video, Clock, MapPin, History } from 'lucide-react';
 
 export default function Workshops() {
-  const schedule = [
+  const upcomingSchedule = [
     {
-      date: "March 5, 2026",
-      time: "6:00 PM - 8:00 PM",
-      location: "Virtual (Discord)",
-      title: "Intro to Threat Hunting",
-      description: "Learn the basics of identifying indicators of compromise using open-source tools.",
-      instructor: "Alex Rivera"
-    },
+      date: "March 13, 2026",
+      time: "2:00 PM - 3:00 PM",
+      location: "EIEAB 2.204",
+      title: "picoCTF Workshop",
+      description: "Join VISI and get hands-on with offensive security.",
+      presenter: "Damian Villarreal"
+    }
+  ];
+
+  const pastSchedule = [
     {
-      date: "March 12, 2026",
-      time: "6:00 PM - 8:00 PM",
-      location: "Room 101, Engineering Bldg",
-      title: "Malware Analysis 101",
-      description: "A hands-on session analyzing a live sample in a sandboxed environment.",
-      instructor: "Elena Rodriguez"
-    },
-    {
-      date: "March 19, 2026",
-      time: "6:00 PM - 8:00 PM",
-      location: "Virtual (Discord)",
-      title: "Incident Response Playbooks",
-      description: "Developing and executing standard operating procedures during a breach.",
-      instructor: "Sarah Chen"
+      date: "March 6, 2026",
+      time: "2:00 PM - 3:00 PM",
+      location: "EIEAB 2.204",
+      title: "Vulnerability Management Workshop",
+      description: "Port scanning, attack methods, and risk assessment using industry-standard tools.",
+      presenter: "Mauricio Martinez"
     }
   ];
 
@@ -54,25 +49,28 @@ export default function Workshops() {
         </div>
       </section>
 
-      {/* Schedule Section */}
-      <section className="py-24">
+      {/* Upcoming Schedule Section */}
+      <section className="pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-12">
+          <div className="flex items-center gap-3 mb-10">
             <Calendar className="h-8 w-8 text-[#D95D39]" />
             <h2 className="text-3xl font-bold text-gray-900 font-display">Upcoming Schedule</h2>
           </div>
           
           <div className="space-y-6">
-            {schedule.map((event, index) => (
+            {upcomingSchedule.length > 0 ? upcomingSchedule.map((event, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6 md:items-center"
+                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6 md:items-center relative overflow-hidden"
               >
-                <div className="md:w-1/4 flex flex-col gap-2 border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 pr-4">
+                {/* Left Accent border */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#D95D39]"></div>
+
+                <div className="md:w-1/4 flex flex-col gap-2 border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 pr-4 pl-2">
                   <div className="flex items-center gap-2 text-[#D95D39] font-bold">
                     <Calendar className="h-4 w-4" />
                     {event.date}
@@ -89,7 +87,54 @@ export default function Workshops() {
                 <div className="md:w-3/4">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
                   <p className="text-gray-600 mb-3">{event.description}</p>
-                  <p className="text-sm font-medium text-gray-500">Instructor: {event.instructor}</p>
+                  <p className="text-sm font-medium text-gray-500">Presenter: {event.presenter}</p>
+                </div>
+              </motion.div>
+            )) : (
+              <div className="text-center py-12 bg-gray-50 rounded-xl border border-gray-200 shadow-sm">
+                <p className="text-gray-500">No upcoming workshops scheduled at the moment. Check back soon!</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Past Workshops Section */}
+      <section className="pb-24 pt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-10">
+            <History className="h-8 w-8 text-gray-400" />
+            <h2 className="text-3xl font-bold text-gray-900 font-display">Past Workshops</h2>
+          </div>
+          
+          <div className="space-y-6 opacity-80">
+            {pastSchedule.map((event, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-6 flex flex-col md:flex-row gap-6 md:items-center"
+              >
+                <div className="md:w-1/4 flex flex-col gap-2 border-b md:border-b-0 md:border-r border-gray-200 pb-4 md:pb-0 pr-4">
+                  <div className="flex items-center gap-2 text-gray-600 font-bold">
+                    <Calendar className="h-4 w-4" />
+                    {event.date}
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-500 text-sm">
+                    <Clock className="h-4 w-4" />
+                    {event.time}
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-500 text-sm">
+                    <MapPin className="h-4 w-4" />
+                    {event.location}
+                  </div>
+                </div>
+                <div className="md:w-3/4">
+                  <h3 className="text-xl font-bold text-gray-700 mb-2">{event.title}</h3>
+                  <p className="text-gray-500 mb-3">{event.description}</p>
+                  <p className="text-sm font-medium text-gray-400">Presenter: {event.presenter}</p>
                 </div>
               </motion.div>
             ))}
@@ -97,7 +142,7 @@ export default function Workshops() {
         </div>
       </section>
 
-      {/* Recorded Videos Section */}
+      {/* Recorded Videos Section - Regular Light Theme */}
       <section className="py-24 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-12">
