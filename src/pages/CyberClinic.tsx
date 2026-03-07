@@ -2,6 +2,10 @@ import { motion } from 'motion/react';
 import { Shield, Users, BookOpen, Target, CheckCircle2, ArrowRight, Briefcase, Lock, Rocket, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Import new images
+import imgCommunity from '../assets/clinic/priscilla-du-preez-XkKCui44iM0-unsplash.jpg';
+import imgProject from '../assets/clinic/marvin-meyer-SYTO3xs06fU-unsplash.jpg';
+
 export default function CyberClinic() {
   return (
     <div className="flex flex-col w-full">
@@ -133,10 +137,9 @@ export default function CyberClinic() {
             >
               <div className="aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                 <img 
-                  src="https://picsum.photos/seed/community/800/600" 
+                  src={imgCommunity} 
                   alt="Community Support" 
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100 max-w-xs hidden md:block">
@@ -164,18 +167,12 @@ export default function CyberClinic() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 name: "Dr. Sergei Chuprov",
                 role: "Lead Faculty Advisor",
                 desc: "Assistant Professor in CS. Research focuses on ML Applications Robustness & Security, Data Quality, and Cyber-Physical Systems.",
-                icon: Award
-              },
-              {
-                name: "Dr. Lucas Hall",
-                role: "Faculty Advisor",
-                desc: "Supporting faculty member bringing academic rigor and mentorship to the clinic's operations.",
                 icon: Award
               },
               {
@@ -444,14 +441,25 @@ export default function CyberClinic() {
                   </li>
                 </ul>
               </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="flex justify-center"
+                className="flex flex-col gap-10 justify-center"
               >
-                <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 max-w-md w-full">
+                {/* Embedded Project Image */}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#D95D39]/20 to-transparent rounded-2xl transform translate-x-4 translate-y-4"></div>
+                  <img 
+                    src={imgProject} 
+                    alt="Students collaborating on cybersecurity projects" 
+                    className="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/3]"
+                  />
+                </div>
+
+                <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 max-w-md w-full mx-auto relative z-10">
                   <h4 className="text-xl font-bold text-gray-900 mb-4 text-center">Ready to get involved?</h4>
                   <p className="text-gray-600 text-center mb-8">
                     Whether you're a student looking to gain experience or an organization in need of assistance.

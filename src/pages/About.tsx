@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Target, Users } from 'lucide-react';
+import { Target, Users, ExternalLink } from 'lucide-react';
 
 // Import your new leader images
 import chuprovImg from '../assets/about/chuprov.jpg';
@@ -22,16 +22,18 @@ export default function About() {
 
   const leaders = [
     {
-      name: "Sergei Chuprov",
-      role: "Advisor",
-      bio: "Providing expert guidance and mentorship to the initiative, helping shape our research, operations, and training methodologies.",
-      image: chuprovImg
+      name: "Dr. Sergei Chuprov",
+      role: "Lead Faculty Advisor",
+      bio: "Assistant Professor in the Department of Computer Science at UTRGV. He holds a Ph.D. in Computing and Information Sciences from RIT. His research focuses on improving the robustness of machine learning applications, data quality, and the security of Federated Learning.",
+      image: chuprovImg,
+      website: "https://faculty.utrgv.edu/sergei.chuprov/"
     },
     {
       name: "Damian Villarreal",
       role: "Founder",
-      bio: "Student analyst at the Regional Security Operations Center (RSOC) at UTRGV. Passionate about bridging cybersecurity and web development to build hands-on training environments.",
-      image: iwangsanImg
+      bio: "Computer Science undergraduate and Analyst at the UTRGV Regional Security Operations Center (RSOC). Passionate about nuclear energy, security automation, and building cyber-physical systems.",
+      image: iwangsanImg,
+      website: "https://damianvillarreal.com/"
     }
   ];
 
@@ -76,11 +78,32 @@ export default function About() {
                 Empowering the next generation of cyber defenders
               </h3>
               <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                The Vaquero Information Security Initiative (VISI) was founded with a singular goal: to bridge the gap between theoretical knowledge and practical cybersecurity skills. We believe that the best way to learn security is by doing it.
+                The Vaquero Information Security Initiative (ISI) was founded with a singular goal: to bridge the gap between theoretical knowledge and practical cybersecurity skills. We believe that the best way to learn security is by doing it.
               </p>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                 Through our student-run Virtual SOC (Vaquero Labs), we provide members with enterprise-grade tools and realistic environments to practice offensive and defensive operations, conduct threat intelligence research, and prepare for careers in the rapidly evolving cyber landscape.
               </p>
+              
+              <div className="grid grid-cols-2 gap-6 mt-8">
+                <div className="flex items-start gap-3">
+                  <div className="bg-[#D95D39]/10 p-2 rounded-lg">
+                    <Target className="h-6 w-6 text-[#D95D39]" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Hands-on Learning</h4>
+                    <p className="text-sm text-gray-500 mt-1">Real-world scenarios and labs.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-[#D95D39]/10 p-2 rounded-lg">
+                    <Users className="h-6 w-6 text-[#D95D39]" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Community</h4>
+                    <p className="text-sm text-gray-500 mt-1">Collaborative research and networking.</p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Instagram Embed replacing the image */}
@@ -122,7 +145,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md hover:border-[#D95D39]/30 transition-all group"
+                className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md hover:border-[#D95D39]/30 transition-all group flex flex-col"
               >
                 <div className="aspect-square overflow-hidden relative">
                   <img 
@@ -133,12 +156,22 @@ export default function About() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h4 className="text-xl font-bold text-gray-900 mb-1">{leader.name}</h4>
                   <p className="text-[#D95D39] text-sm font-bold uppercase tracking-wider mb-4">{leader.role}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed flex-1 mb-6">
                     {leader.bio}
                   </p>
+                  {leader.website && (
+                    <a 
+                      href={leader.website} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-1.5 text-gray-700 hover:text-[#D95D39] text-sm font-bold transition-colors w-max"
+                    >
+                      Visit Website <ExternalLink className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
