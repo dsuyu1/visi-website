@@ -1,16 +1,27 @@
 import { Link } from 'react-router-dom';
-import { Shield, ChevronRight, Terminal, Server, Lock, Activity, ArrowRight } from 'lucide-react';
+import { 
+  ChevronRight, 
+  ArrowRight, 
+  ShieldAlert, 
+  BookOpen, 
+  Video, 
+  FileText,
+  Activity
+} from 'lucide-react';
 import { motion } from 'motion/react';
+
+// Import your new stock images
+import imgCompagnons from '../assets/home/compagnons-TlFw-WoI8_w-unsplash.jpg';
+import imgNasa from '../assets/home/nasa-1lfI7wkGWZ4-unsplash.jpg';
+import imgShamin from '../assets/home/shamin-haky-Uhx-gHPpCDg-unsplash.jpg';
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
+      
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-24 pb-32 lg:pt-36 lg:pb-40 bg-white">
-        {/* Soft gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-[#D95D39]/5 opacity-80"></div>
-        
-        {/* Grid with plus signs */}
         <div className="absolute inset-0 grid-bg opacity-70"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -24,30 +35,32 @@ export default function Home() {
               of <span className="text-[#D95D39]">cyber warriors.</span>
             </h1>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-              Empowering the next generation of cybersecurity professionals through hands-on lab experience, threat intelligence research, and advanced security operations.
+              Empowering students through hands-on Virtual SOC experience, pro-bono community consulting, and comprehensive security operations training.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="https://lab.vaqueroisi.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex justify-center items-center gap-2 bg-[#D95D39] hover:bg-[#E66A46] text-white px-8 py-4 rounded-md font-bold text-lg transition-all"
+                className="inline-flex justify-center items-center gap-2 bg-[#D95D39] hover:bg-[#E66A46] text-white px-8 py-4 rounded-md font-bold text-lg transition-all shadow-md hover:shadow-lg"
               >
                 Member Login <ChevronRight className="h-5 w-5" />
               </a>
-              <Link
-                to="/docs"
+              <a
+                href="#explore"
                 className="inline-flex justify-center items-center gap-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-900 px-8 py-4 rounded-md font-bold text-lg transition-all shadow-sm"
               >
-                View our Documentation
-              </Link>
+                Explore the Initiative
+              </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Vaquero Labs Section */}
-      <section className="py-24 bg-gray-50 border-y border-gray-100">
+      <div id="explore"></div>
+
+      {/* The Platform: VSOC Section */}
+      <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -56,18 +69,21 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">Vaquero Labs</h2>
+              <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">The Platform</h2>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight font-display">
-                Threat intelligence and research
+                Virtual Security Operations Center
               </h3>
+              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                Vaquero Labs is our enterprise-grade simulation environment. We provide members with access to industry-standard tools like Wazuh SIEM, TheHive, and active vulnerability management platforms.
+              </p>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                Improve your security program with emergent threat response, proprietary intelligence, research, and adversary insights - all curated by Vaquero Labs and deployed across our portfolio of solutions and services.
+                Students actively engage in defensive blue-team operations, incident response, threat hunting, and intelligence research to build real-world SecOps experience before they ever enter the workforce.
               </p>
               <Link
-                to="/blog"
+                to="/vsoc"
                 className="inline-flex items-center gap-2 text-[#D95D39] font-bold hover:text-[#E66A46] transition-colors uppercase tracking-wide text-sm"
               >
-                Get Insights <ArrowRight className="h-4 w-4" />
+                Explore Vaquero Labs <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>
 
@@ -76,125 +92,230 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-2 gap-4"
+              className="relative"
             >
-              <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-[#D95D39]/30 hover:shadow-md transition-all">
-                <Terminal className="h-8 w-8 text-[#D95D39] mb-4" />
-                <h4 className="text-gray-900 font-bold mb-2">Offensive Security</h4>
-                <p className="text-gray-500 text-sm">Red team operations and penetration testing methodologies.</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-[#D95D39]/30 hover:shadow-md transition-all">
-                <Shield className="h-8 w-8 text-[#D95D39] mb-4" />
-                <h4 className="text-gray-900 font-bold mb-2">Defensive Ops</h4>
-                <p className="text-gray-500 text-sm">Blue team tactics, incident response, and threat hunting.</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-[#D95D39]/30 hover:shadow-md transition-all">
-                <Server className="h-8 w-8 text-[#D95D39] mb-4" />
-                <h4 className="text-gray-900 font-bold mb-2">Infrastructure</h4>
-                <p className="text-gray-500 text-sm">Enterprise-grade lab environment for realistic simulations.</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-[#D95D39]/30 hover:shadow-md transition-all">
-                <Activity className="h-8 w-8 text-[#D95D39] mb-4" />
-                <h4 className="text-gray-900 font-bold mb-2">Threat Intel</h4>
-                <p className="text-gray-500 text-sm">Analyzing emerging threats and adversary behaviors.</p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#D95D39]/20 to-transparent rounded-2xl transform translate-x-4 translate-y-4"></div>
+              <img 
+                src={imgNasa} 
+                alt="Global network and satellite data representation" 
+                className="relative rounded-2xl shadow-xl object-cover w-full h-[400px] md:h-[500px]"
+              />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Insights / Blog Section */}
+      {/* Services: Cyber Clinic Section */}
+      <section className="py-24 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Image is on the left on desktop, top on mobile */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="relative order-2 lg:order-1"
+            >
+              <div className="absolute inset-0 bg-gradient-to-bl from-gray-300/40 to-transparent rounded-2xl transform -translate-x-4 translate-y-4"></div>
+              <img 
+                src={imgCompagnons} 
+                alt="Students helping the community" 
+                className="relative rounded-2xl shadow-xl object-cover w-full h-[400px] md:h-[500px]"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="order-1 lg:order-2"
+            >
+              <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">Community Services</h2>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight font-display">
+                UTRGV Cyber Clinic
+              </h3>
+              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                Security shouldn't be a luxury. Our Cyber Clinic initiative connects our highly-trained student analysts with local non-profits, small businesses, and community organizations.
+              </p>
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                We provide pro-bono security assessments, log monitoring, and infrastructure auditing to help secure the Rio Grande Valley while giving students invaluable client-facing consulting experience.
+              </p>
+              <Link
+                to="/cyber-clinic"
+                className="inline-flex items-center gap-2 text-[#D95D39] font-bold hover:text-[#E66A46] transition-colors uppercase tracking-wide text-sm"
+              >
+                View Clinic Services <ArrowRight className="h-4 w-4" />
+              </Link>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Learning & Resources Hub */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">Insights</h2>
+            <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">Education</h2>
             <h3 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 font-display">
-              Stay in the know and ahead of threats
+              Resources
             </h3>
-          </div>
-
-          <div className="text-center py-16 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
-            <Activity className="h-10 w-10 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Research Coming Soon</h3>
-            <p className="text-gray-500 max-w-md mx-auto">
-              Our team is currently working on some exciting new research and tutorials. Check back soon for our first publications!
+            <p className="text-gray-600 text-lg">
+              Whether you are completely new to IT or an experienced security analyst, we provide the documentation, curriculum, and workshops you need to grow.
             </p>
           </div>
-          
-          <div className="mt-12 text-center">
-            <Link
-              to="/blog"
-              className="inline-flex items-center gap-2 text-gray-900 font-bold hover:text-[#D95D39] transition-colors"
-            >
-              View all insights <ArrowRight className="h-5 w-5" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Classroom Card */}
+            <Link to="/classroom" className="group bg-gray-50 border border-gray-100 rounded-xl p-8 hover:bg-white hover:shadow-xl hover:border-[#D95D39]/30 transition-all duration-300 flex flex-col items-start text-left">
+              <div className="bg-white p-3 rounded-lg shadow-sm border border-gray-100 mb-6 group-hover:scale-110 transition-transform">
+                <BookOpen className="h-6 w-6 text-[#D95D39]" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Classroom</h4>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                Step-by-step curriculum covering Networking, Linux, Cloud, and SOC fundamentals.
+              </p>
+              <span className="text-[#D95D39] font-bold text-sm uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">
+                Start Learning <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+
+            {/* Documentation Card */}
+            <Link to="/docs" className="group bg-gray-50 border border-gray-100 rounded-xl p-8 hover:bg-white hover:shadow-xl hover:border-[#D95D39]/30 transition-all duration-300 flex flex-col items-start text-left">
+              <div className="bg-white p-3 rounded-lg shadow-sm border border-gray-100 mb-6 group-hover:scale-110 transition-transform">
+                <FileText className="h-6 w-6 text-[#D95D39]" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Documentation</h4>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                Technical playbooks, lab setup guides, and standard operating procedures for the VSOC.
+              </p>
+              <span className="text-[#D95D39] font-bold text-sm uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">
+                Read Docs <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+
+            {/* Workshops Card */}
+            <Link to="/workshops" className="group bg-gray-50 border border-gray-100 rounded-xl p-8 hover:bg-white hover:shadow-xl hover:border-[#D95D39]/30 transition-all duration-300 flex flex-col items-start text-left">
+              <div className="bg-white p-3 rounded-lg shadow-sm border border-gray-100 mb-6 group-hover:scale-110 transition-transform">
+                <Video className="h-6 w-6 text-[#D95D39]" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Workshops</h4>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                Check the schedule for our weekly hands-on training sessions, or watch past recordings.
+              </p>
+              <span className="text-[#D95D39] font-bold text-sm uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">
+                View Schedule <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+
+            {/* Blog Card */}
+            <Link to="/blog" className="group bg-gray-50 border border-gray-100 rounded-xl p-8 hover:bg-white hover:shadow-xl hover:border-[#D95D39]/30 transition-all duration-300 flex flex-col items-start text-left">
+              <div className="bg-white p-3 rounded-lg shadow-sm border border-gray-100 mb-6 group-hover:scale-110 transition-transform">
+                <Activity className="h-6 w-6 text-[#D95D39]" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Security Blog</h4>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                Insights, threat intelligence reports, and research published directly by our students.
+              </p>
+              <span className="text-[#D95D39] font-bold text-sm uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">
+                Read Insights <ArrowRight className="h-4 w-4" />
+              </span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Workshop Videos Section */}
+      {/* About Us Summary Section */}
       <section className="py-24 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div>
-              <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">Training</h2>
-              <h3 className="text-3xl md:text-5xl font-bold text-gray-900 font-display">
-                Latest Workshop Recordings
-              </h3>
-            </div>
-            <Link
-              to="/workshops"
-              className="inline-flex items-center gap-2 text-gray-900 font-bold hover:text-[#D95D39] transition-colors whitespace-nowrap"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              View all workshops <ArrowRight className="h-5 w-5" />
-            </Link>
-          </div>
+              <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">Who We Are</h2>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight font-display">
+                Built by students, <br/>for students.
+              </h3>
+              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                We are a passionate community of aspiring analysts, engineers, and researchers dedicated to breaking down the barrier to entry in cybersecurity.
+              </p>
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                Backed by our strategic partners and faculty advisors, we are creating a hub of security excellence in South Texas. 
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 bg-gray-900 text-white font-bold px-6 py-3 rounded-md hover:bg-[#D95D39] transition-colors"
+                >
+                  Meet the Team
+                </Link>
+                <Link
+                  to="/partners"
+                  className="inline-flex items-center gap-2 bg-white text-gray-900 border border-gray-200 font-bold px-6 py-3 rounded-md hover:border-[#D95D39] transition-colors"
+                >
+                  Our Partners
+                </Link>
+              </div>
+            </motion.div>
 
-          <div className="text-center py-16 bg-white rounded-xl border border-gray-200 shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-300 mx-auto mb-4"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Coming Soon</h3>
-            <p className="text-gray-500 max-w-md mx-auto">
-              We haven't recorded any workshops yet, but we will be recording our first one this week! Check back soon for the video.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-gray-300/40 to-transparent rounded-2xl transform translate-x-4 translate-y-4"></div>
+              <img 
+                src={imgShamin} 
+                alt="Cybersecurity students and technology" 
+                className="relative rounded-2xl shadow-xl object-cover w-full h-[400px]"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-[#D95D39]/5 opacity-80"></div>
-        <div className="absolute inset-0 grid-bg opacity-50"></div>
+      {/* Global CTA Section */}
+      <section className="py-24 bg-white border-t border-gray-100 relative overflow-hidden">
+        <div className="absolute inset-0 grid-bg opacity-30"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="bg-gray-900 rounded-3xl p-12 shadow-2xl relative overflow-hidden"
           >
-            <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">Get Started</h2>
-            <h3 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight font-display">
-              Ready to join <br className="hidden md:block" />
-              the <span className="text-[#D95D39]">initiative?</span>
+            {/* Abstract Background element inside the card */}
+            <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-[#D95D39]/20 blur-[80px] pointer-events-none"></div>
+
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight font-display relative z-10">
+              Ready to join the initiative?
             </h3>
+            <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+              Whether you want to learn, collaborate, or need assistance securing your organization, we are here to help.
+            </p>
             
-            <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
               <Link
                 to="/contact"
-                className="inline-flex justify-center items-center gap-2 bg-[#D95D39] hover:bg-[#E66A46] text-white px-8 py-4 rounded-md font-bold text-lg transition-all shadow-sm"
+                className="inline-flex justify-center items-center gap-2 bg-[#D95D39] hover:bg-[#E66A46] text-white px-8 py-4 rounded-md font-bold text-lg transition-all"
               >
-                Let's Talk
-              </Link>
-              <Link
-                to="/blog"
-                className="inline-flex justify-center items-center gap-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-900 px-8 py-4 rounded-md font-bold text-lg transition-all shadow-sm"
-              >
-                Read blog
+                Get In Touch
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 }
