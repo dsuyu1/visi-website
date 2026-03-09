@@ -12,7 +12,7 @@ import { motion } from 'motion/react';
 
 // Import your new stock images
 import imgCompagnons from '../assets/home/compagnons-TlFw-WoI8_w-unsplash.jpg';
-import imgNasa from '../assets/home/nasa-1lfI7wkGWZ4-unsplash.jpg';
+import imgNasa from '../assets/home/compagnons-Fa9b57hffnM-unsplash.jpg';
 import imgShamin from '../assets/home/shamin-haky-Uhx-gHPpCDg-unsplash.jpg';
 
 export default function Home() {

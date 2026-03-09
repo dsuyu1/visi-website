@@ -228,10 +228,10 @@ export default function Navbar() {
                     Resources <ChevronDown className="h-3 w-3" />
                   </button>
                   <div className="absolute left-0 mt-3 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 top-full before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
-                    <Link to="/docs" className="block px-4 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-600 hover:text-[#D95D39] hover:bg-gray-50">Documentation</Link>
                     <Link to="/blog" className="block px-4 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-600 hover:text-[#D95D39] hover:bg-gray-50">Security Blog</Link>
-                    <Link to="/workshops" className="block px-4 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-600 hover:text-[#D95D39] hover:bg-gray-50">Workshops</Link>
                     <Link to="/classroom" className="block px-4 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-600 hover:text-[#D95D39] hover:bg-gray-50">Classroom</Link>
+                    <Link to="/workshops" className="block px-4 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-600 hover:text-[#D95D39] hover:bg-gray-50">Workshops</Link>
+                    <Link to="/docs" className="block px-4 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-600 hover:text-[#D95D39] hover:bg-gray-50">Documentation</Link>
                   </div>
                 </div>
 
@@ -322,10 +322,10 @@ export default function Navbar() {
                 </button>
                 {mobileResourcesOpen && (
                   <div className="pl-6 space-y-1 mt-1">
-                    <Link onClick={() => setIsOpen(false)} to="/docs" className="block px-3 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-500 hover:text-[#D95D39] hover:bg-gray-50 rounded-md">Documentation</Link>
                     <Link onClick={() => setIsOpen(false)} to="/blog" className="block px-3 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-500 hover:text-[#D95D39] hover:bg-gray-50 rounded-md">Security Blog</Link>
-                    <Link onClick={() => setIsOpen(false)} to="/workshops" className="block px-3 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-500 hover:text-[#D95D39] hover:bg-gray-50 rounded-md">Workshops</Link>
                     <Link onClick={() => setIsOpen(false)} to="/classroom" className="block px-3 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-500 hover:text-[#D95D39] hover:bg-gray-50 rounded-md">Classroom</Link>
+                    <Link onClick={() => setIsOpen(false)} to="/workshops" className="block px-3 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-500 hover:text-[#D95D39] hover:bg-gray-50 rounded-md">Workshops</Link>
+                    <Link onClick={() => setIsOpen(false)} to="/docs" className="block px-3 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-500 hover:text-[#D95D39] hover:bg-gray-50 rounded-md">Documentation</Link>
                   </div>
                 )}
               </div>

@@ -11,10 +11,12 @@ import VSOC from './pages/VSOC';
 import Workshops from './pages/Workshops';
 import CyberClinic from './pages/CyberClinic';
 import Classroom from './pages/Classroom';
+import ScrollToTop from './components/sneaky';
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white text-gray-900 font-sans flex flex-col relative">
         <Navbar />
         <main className="flex-grow">
