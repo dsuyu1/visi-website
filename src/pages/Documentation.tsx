@@ -22,10 +22,10 @@ This platform is a state-of-the-art simulation network designed to replicate the
       {
         id: 'doc-accounts',
         title: 'Requesting an Account',
-        content: `Access to Vaquero Labs is restricted to active VISI members and UTRGV Cyber Clinic student analysts.
+        content: `Access to Vaquero Labs is restricted to active VISI members.
 
 **Account Creation Process:**
-1. Reach out to a VISI board member or your clinic faculty advisor.
+1. Reach out to a VISI board member or faculty advisor.
 2. You will be sent an invitation link to our **Keycloak** Single Sign-On (SSO) portal.
 3. Register using your \`@utrgv.edu\` email address.
 4. Once approved by an administrator, you can log into the central dashboard at [lab.vaqueroisi.org](https://lab.vaqueroisi.org).
