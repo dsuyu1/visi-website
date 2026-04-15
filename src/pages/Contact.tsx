@@ -141,7 +141,7 @@ ${formData.message}
                 <label htmlFor="reason" className="block text-sm font-medium text-gray-700 mb-2">Reason for Contact *</label>
                 <select id="reason" value={formData.reason} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:border-[#D95D39] focus:ring-1 focus:ring-[#D95D39] transition-colors appearance-none" required>
                   <option value="">Select a reason...</option>
-                  <option value="Community Support / Services">Community Support / Services</option>
+                  <option value="Joining VISI">Joining VISI</option>
                   <option value="Lab Support">Lab Support</option>
                   <option value="Partnership">Partnership</option>
                   <option value="Other">Other</option>

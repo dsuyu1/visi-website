@@ -105,7 +105,7 @@ export default function VSOC() {
                 The Virtual SOC (VSOC) is the core of VISI's hands-on training methodology. It is a comprehensive, simulated network environment that mirrors the complexity and scale of modern enterprise infrastructures.
               </p>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                We use the VSOC for threat hunting, incident response, threat analysis, intelligence gathering, and real-life threat modeling. It serves as a crucial practice ground for our client engagements, allowing our members to experience what a real SOC does on a daily basis before they enter the workforce.
+                We use the VSOC for threat hunting, incident response, threat analysis, intelligence gathering, and real-life threat modeling. It gives our members hands-on experience with what a real SOC does on a daily basis, preparing them for the workforce and — one day — for supporting the RGV community directly.
               </p>
             </motion.div>
 

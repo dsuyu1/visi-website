@@ -34,7 +34,7 @@ export default function Home() {
               of <span className="text-[#D95D39]">cyber warriors.</span>
             </h1>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-              Empowering students through hands-on Virtual SOC experience, pro-bono community consulting, and comprehensive security operations training.
+              Empowering students through hands-on Virtual SOC experience and comprehensive security operations training — with the long-term goal of one day giving back to the Rio Grande Valley through free, pro-bono community services.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
@@ -250,7 +250,7 @@ export default function Home() {
               Ready to join the initiative?
             </h3>
             <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">
-              Whether you want to learn, collaborate, or need assistance securing your organization, we are here to help.
+              Whether you want to learn with us, grow as an analyst, or support our mission, we'd love to hear from you.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
