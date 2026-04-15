@@ -9,7 +9,6 @@ import About from './pages/About';
 import Partners from './pages/Partners';
 import VSOC from './pages/VSOC';
 import Workshops from './pages/Workshops';
-import CyberClinic from './pages/CyberClinic';
 import Classroom from './pages/Classroom';
 import ScrollToTop from './components/sneaky';
 
@@ -29,7 +28,6 @@ export default function App() {
             <Route path="/partners" element={<Partners />} />
             <Route path="/vsoc" element={<VSOC />} />
             <Route path="/workshops" element={<Workshops />} />
-            <Route path="/cyber-clinic" element={<CyberClinic />} />
             <Route path="/classroom" element={<Classroom />} />
           </Routes>
         </main>

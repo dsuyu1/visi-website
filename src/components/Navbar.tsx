@@ -13,12 +13,6 @@ const searchIndex = [
     keywords: ["lab", "wazuh", "siem", "edr", "traffic", "simulation", "platform"]
   },
   {
-    title: "UTRGV Cyber Clinic",
-    description: "Providing pro bono cybersecurity assistance and risk assessments to critical public infrastructure.",
-    path: "/cyber-clinic",
-    keywords: ["pro bono", "community", "service", "liability", "pilot", "services", "nonprofit"]
-  },
-  {
     title: "Documentation & Lab Resources",
     description: "Lab architecture, getting started guides, tool directories, and rules of engagement.",
     path: "/docs",
@@ -65,7 +59,6 @@ const searchIndex = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mobilePlatformOpen, setMobilePlatformOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
@@ -212,16 +205,6 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* Services Dropdown */}
-                <div className="relative group">
-                  <button className="nav-link-animated text-xs font-bold uppercase tracking-widest font-display flex items-center gap-1 py-1">
-                    Services <ChevronDown className="h-3 w-3" />
-                  </button>
-                  <div className="absolute left-0 mt-3 w-64 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 top-full before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
-                    <Link to="/cyber-clinic" className="block px-4 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-600 hover:text-[#D95D39] hover:bg-gray-50">Cyber Clinic</Link>
-                  </div>
-                </div>
-
                 {/* Resources Dropdown */}
                 <div className="relative group">
                   <button className="nav-link-animated text-xs font-bold uppercase tracking-widest font-display flex items-center gap-1 py-1">
@@ -293,21 +276,6 @@ export default function Navbar() {
                 {mobilePlatformOpen && (
                   <div className="pl-6 space-y-1 mt-1">
                     <Link onClick={() => setIsOpen(false)} to="/vsoc" className="block px-3 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-500 hover:text-[#D95D39] hover:bg-gray-50 rounded-md">Virtual SOC</Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Mobile Services */}
-              <div>
-                <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="flex justify-between w-full px-3 py-2 text-xs font-bold uppercase tracking-widest font-display text-gray-700 hover:text-[#D95D39] hover:bg-gray-50 rounded-md"
-                >
-                  Services <ChevronDown className={`h-4 w-4 transform transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {mobileServicesOpen && (
-                  <div className="pl-6 space-y-1 mt-1">
-                    <Link onClick={() => setIsOpen(false)} to="/cyber-clinic" className="block px-3 py-2 text-xs font-bold uppercase tracking-wider font-display text-gray-500 hover:text-[#D95D39] hover:bg-gray-50 rounded-md">Cyber Clinic</Link>
                   </div>
                 )}
               </div>

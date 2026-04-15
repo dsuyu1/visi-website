@@ -11,7 +11,6 @@ import {
 import { motion } from 'motion/react';
 
 // Import your new stock images
-import imgCompagnons from '../assets/home/compagnons-TlFw-WoI8_w-unsplash.jpg';
 import imgNasa from '../assets/home/compagnons-Fa9b57hffnM-unsplash.jpg';
 import imgShamin from '../assets/home/shamin-haky-Uhx-gHPpCDg-unsplash.jpg';
 
@@ -101,56 +100,6 @@ export default function Home() {
                 className="relative rounded-2xl shadow-xl object-cover w-full h-[400px] md:h-[500px]"
               />
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services: Cyber Clinic Section */}
-      <section className="py-24 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
-            {/* Image is on the left on desktop, top on mobile */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="relative order-2 lg:order-1"
-            >
-              <div className="absolute inset-0 bg-gradient-to-bl from-gray-300/40 to-transparent rounded-2xl transform -translate-x-4 translate-y-4"></div>
-              <img 
-                src={imgCompagnons} 
-                alt="Students helping the community" 
-                className="relative rounded-2xl shadow-xl object-cover w-full h-[400px] md:h-[500px]"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="order-1 lg:order-2"
-            >
-              <h2 className="text-[#D95D39] font-bold tracking-wider uppercase text-sm mb-3">Community Services</h2>
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight font-display">
-                UTRGV Cyber Clinic
-              </h3>
-              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                Security shouldn't be a luxury. Our Cyber Clinic initiative connects our highly-trained student analysts with local non-profits, small businesses, and community organizations.
-              </p>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                We provide pro-bono security assessments, log monitoring, and infrastructure auditing to help secure the Rio Grande Valley while giving students invaluable client-facing consulting experience.
-              </p>
-              <Link
-                to="/cyber-clinic"
-                className="inline-flex items-center gap-2 text-[#D95D39] font-bold hover:text-[#E66A46] transition-colors uppercase tracking-wide text-sm"
-              >
-                View Clinic Services <ArrowRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
-
           </div>
         </div>
       </section>
