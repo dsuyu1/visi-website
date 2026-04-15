@@ -3,9 +3,4 @@ dist
 *.log
 .env
 .env.*
-!.env.example
 .git
-certbot
-nginx
-lab
-scripts
