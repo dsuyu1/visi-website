@@ -1,13 +1,13 @@
 # VISI Website
 
-The official website for the **Vaquero Information Security Initiative (VISI)** club. Built with React, TypeScript, and Vite.
+The official website for the **Vaquero Information Security Initiative (VISI)** club. Built with React, TypeScript, and Vite — deployed on Cloudflare Workers.
 
 ## Tech Stack
 
 - **Frontend:** React 19, TypeScript, Tailwind CSS 4, React Router 7
 - **Build:** Vite 6
+- **Deployment:** Cloudflare Workers
 - **Infrastructure:** Docker, Nginx, Keycloak (OAuth2), oauth2-proxy
-- **AI:** Google Gemini API
 
 ## Run Locally
 
@@ -18,35 +18,22 @@ The official website for the **Vaquero Information Security Initiative (VISI)** 
    npm install
    ```
 
-2. Copy the environment file and fill in values:
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Start the dev server:
+2. Start the dev server:
    ```bash
    npm run dev
    ```
 
    The app runs at `http://localhost:3001`.
 
-## Run with Docker
+## Deploy
 
-**Prerequisites:** Docker, Docker Compose
+The site is deployed via Cloudflare Workers. Deployments to production are triggered automatically on merge to `main` via GitHub Actions.
 
+To deploy manually:
 ```bash
-docker compose up --build
+npm run build
+npx wrangler deploy
 ```
-
-For SSL setup, see [`scripts/init-ssl.sh`](scripts/init-ssl.sh). For Keycloak configuration, see [`scripts/setup-keycloak.md`](scripts/setup-keycloak.md).
-
-## Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `GEMINI_API_KEY` | Google Gemini API key for AI features | Yes |
-
-Copy `.env.example` to `.env` and fill in the values before running.
 
 ## Available Scripts
 
